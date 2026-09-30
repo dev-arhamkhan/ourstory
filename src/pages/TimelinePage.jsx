@@ -253,7 +253,7 @@ export default function TimelinePage({ spaceId, onNavigateRecap }) {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Sparkles size={18} color="#e11d48" />
             <span>
-              <strong>Save this link!</strong> Access is via this private link — there is no login to recover it otherwise.
+              <strong>Save this link!</strong> Your story is accessed through this link — anyone with it can view and edit your space. Keep it somewhere safe.
             </span>
           </div>
           <button 
@@ -456,6 +456,23 @@ export default function TimelinePage({ spaceId, onNavigateRecap }) {
         )}
 
       </main>
+
+      {/* Subtle legal footer */}
+      <footer style={{ textAlign: 'center', marginTop: '3rem', display: 'flex', gap: '1.25rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+        <button
+          onClick={() => { window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.78rem', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+        >
+          Privacy Policy
+        </button>
+        <span style={{ color: '#fecdd3', fontSize: '0.78rem' }}>·</span>
+        <button
+          onClick={() => { window.history.pushState({}, '', '/terms'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.78rem', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+        >
+          Terms of Use
+        </button>
+      </footer>
 
       {/* Add / Edit Moment Modal */}
       {showMomentModal && (

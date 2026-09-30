@@ -101,12 +101,30 @@ export default function HomeCreatePage({ onSpaceCreated }) {
 
           <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.82rem', backgroundColor: '#fff5f7', padding: '0.75rem', borderRadius: '10px' }}>
             <ShieldCheck size={18} color="#e11d48" style={{ flexShrink: 0 }} />
-            <span>Private & unguessable share link. No accounts or passwords required.</span>
+            <span>Your story is accessed through a share link — anyone with the link can view it, so keep it somewhere safe.</span>
           </div>
         </div>
 
       </div>
 
+      {/* Subtle legal footer */}
+      <div style={{ marginTop: '2rem', display: 'flex', gap: '1.25rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+        <button
+          onClick={() => { window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.78rem', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+        >
+          Privacy Policy
+        </button>
+        <span style={{ color: '#fecdd3', fontSize: '0.78rem' }}>·</span>
+        <button
+          onClick={() => { window.history.pushState({}, '', '/terms'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', fontSize: '0.78rem', cursor: 'pointer', fontFamily: 'inherit', padding: 0 }}
+        >
+          Terms of Use
+        </button>
+      </div>
+
     </div>
   );
 }
+

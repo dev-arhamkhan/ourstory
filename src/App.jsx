@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import HomeCreatePage from './pages/HomeCreatePage';
 import TimelinePage from './pages/TimelinePage';
 import RecapPage from './pages/RecapPage';
+import PrivacyPage from './pages/PrivacyPage';
+import TermsPage from './pages/TermsPage';
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -31,21 +33,30 @@ export default function App() {
     navigateTo(`/space/${spaceId}`);
   };
 
-  // Route matching
-  // 1. Recap route: /space/:id/recap
+  // /privacy
+  if (currentPath === '/privacy') {
+    return <PrivacyPage />;
+  }
+
+  // /terms
+  if (currentPath === '/terms') {
+    return <TermsPage />;
+  }
+
+  // /space/:id/recap
   const recapMatch = currentPath.match(/^\/space\/([^\/]+)\/recap\/?$/);
   if (recapMatch) {
     const spaceId = recapMatch[1];
     return <RecapPage spaceId={spaceId} onNavigateTimeline={handleNavigateTimeline} />;
   }
 
-  // 2. Timeline route: /space/:id
+  // /space/:id
   const timelineMatch = currentPath.match(/^\/space\/([^\/]+)\/?$/);
   if (timelineMatch) {
     const spaceId = timelineMatch[1];
     return <TimelinePage spaceId={spaceId} onNavigateRecap={handleNavigateRecap} />;
   }
 
-  // 3. Fallback / Create space route
+  // Home / Create
   return <HomeCreatePage onSpaceCreated={handleSpaceCreated} />;
 }

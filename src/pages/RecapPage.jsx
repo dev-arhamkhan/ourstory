@@ -422,8 +422,23 @@ export default function RecapPage({ spaceId, onNavigateTimeline }) {
         )}
 
         {/* Footer */}
-        <footer style={{ textAlign: 'center', marginTop: '4rem', color: '#fda4af', fontSize: '0.88rem', opacity: 0.8 }}>
-          <p>OurStory — Private & Shared Relationship Timeline</p>
+        <footer style={{ textAlign: 'center', marginTop: '4rem', color: '#fda4af', fontSize: '0.88rem', opacity: 0.85, display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
+          <p>OurStory — Shared Relationship Timeline</p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', fontSize: '0.78rem' }}>
+            <button
+              onClick={() => { window.history.pushState({}, '', '/privacy'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+              style={{ background: 'none', border: 'none', color: '#fda4af', cursor: 'pointer', fontFamily: 'inherit', padding: 0, textDecoration: 'underline' }}
+            >
+              Privacy Policy
+            </button>
+            <span>·</span>
+            <button
+              onClick={() => { window.history.pushState({}, '', '/terms'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+              style={{ background: 'none', border: 'none', color: '#fda4af', cursor: 'pointer', fontFamily: 'inherit', padding: 0, textDecoration: 'underline' }}
+            >
+              Terms of Use
+            </button>
+          </div>
         </footer>
 
       </div>
