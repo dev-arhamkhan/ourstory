@@ -73,7 +73,7 @@ export default function HomeCreatePage({ onSpaceCreated }) {
               <input
                 type="text"
                 className="form-input"
-                placeholder="e.g. Me & Aimen, Sam & Alex"
+                placeholder="e.g. Me & Her"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
