@@ -194,11 +194,8 @@ export default function TermsPage({ onNavigateHome }) {
             <h2 style={sectionHeading}>Contact</h2>
             <p style={para}>
               For questions about these terms, please contact us at:{' '}
-              <strong>[Add support/privacy contact email]</strong>
+              <a href="mailto:dev.arhamkhan@gmail.com" style={{ color: '#e11d48', fontWeight: 600 }}>dev.arhamkhan@gmail.com</a>.
             </p>
-            <div style={{ backgroundColor: '#fff5f7', border: '1px solid #fecdd3', borderRadius: '10px', padding: '0.75rem 1rem', fontSize: '0.88rem', color: '#be123c' }}>
-              📌 The contact email above is a placeholder and must be replaced before inviting real users.
-            </div>
 
           </div>
         </div>
